@@ -6,84 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RealTalk - Connect Authentically</title>
     <style>
-        /* Add some basic styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Basic styling */
+        body, html {
+            height: 100%;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
         }
 
         header {
-            background-color: #005a87; /* Dark blue color for professional feel */
+            background-color: #005a87;
             color: white;
-            padding: 20px 0;
+            padding: 10px 0;
             width: 100%;
             text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1;
         }
 
-        /* Adjust the logo size */
+        /* Logo size adjustment */
         #logo {
-            width: 160%; /* Increase logo size */
-            max-height: 160px; /* Adjust height accordingly */
-            height: auto; /* Maintain aspect ratio */
+            height: auto;
+            width: 100px; /* Adjust based on your logo's aspect ratio */
         }
 
         #map {
-            width: 90%;
-            height: 400px; /* You can set the height you prefer */
-            background-color: #ddd; /* Placeholder color */
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
+            height: 100%;
             width: 100%;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 40px;
+            margin-top: 60px; /* Adjust depending on the height of your header */
         }
 
-        /* Add responsiveness */
-        @media (max-width: 768px) {
-            header, footer {
-                padding: 10px 0;
-            }
-
-            #map {
-                width: 95%;
-                margin: 20px auto;
-            }
-        }
+        /* Remove footer */
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Qm6luFSqDvINa13aoLEgjhpZUAWInYQ&callback=initMap" async defer></script>
-</head>                                                        
+</head>
 <body>
     <header>
         <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
-        <h1>RealTalk</h1>
-        <p>Discover and Connect.</p>
     </header>
 
-    <main>
-        <div id="map">
-            <!-- The Google Map will be loaded here -->
-        </div>
-
-        <!-- Add more content sections here -->
-    </main>
-
-    <footer>
-        <p>RealTalk © 2024. All rights reserved.</p>
-    </footer>
+    <div id="map">
+        <!-- The Google Map will be loaded here -->
+    </div>
 
     <script>
         function initMap() {
@@ -96,3 +62,4 @@
     </script>
 </body>
 </html>
+
