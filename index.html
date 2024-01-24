@@ -43,11 +43,14 @@
         }
 
         /* Hamburger Menu and Navbar styles */
-        .hamburger-menu {
-            cursor: pointer;
-            display: inline-block;
-            margin-left: 20px;
+       .hamburger-menu {
+           cursor: pointer;
+           display: inline-block;
+           margin-left: 20px;
+           position: relative; /* Add this line */
+           z-index: 2; /* Add this line to make it clickable */
         }
+
 
         .line {
             width: 30px;
