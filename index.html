@@ -23,8 +23,11 @@
             text-align: center;
         }
 
-        header img {
-            max-height: 80px; /* Adjust size to fit your logo */
+        /* Adjust the logo size */
+        #logo {
+            width: 200%; /* Increase logo size */
+            max-height: 160px; /* Adjust height accordingly */
+            height: auto; /* Maintain aspect ratio */
         }
 
         #map {
@@ -61,23 +64,18 @@
             }
         }
     </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArgzhr-ZEkjirwjFBbvcfphFJnRRdfmzE&callback=initMap" async defer></script>
 </head>
 <body>
     <header>
-        <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo">
+        <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
         <h1>RealTalk</h1>
         <p>Discover and Connect.</p>
-        #logo {
-           width: 200px; /* or you can use a percentage like 50% */
-           height: auto; 
-}
-
     </header>
 
     <main>
         <div id="map">
-            <!-- Map placeholder - You will replace this with the actual map -->
-            <p>Map will go here</p>
+            <!-- The Google Map will be loaded here -->
         </div>
 
         <!-- Add more content sections here -->
@@ -88,7 +86,13 @@
     </footer>
 
     <script>
-        // JavaScript for interactive elements will go here
+        function initMap() {
+            var mapOptions = {
+                zoom: 8,
+                center: {lat: -34.397, lng: 150.644} // Change these coordinates to your desired location
+            };
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        }
     </script>
 </body>
 </html>
