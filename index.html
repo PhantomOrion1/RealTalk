@@ -38,12 +38,86 @@
             margin-top: 60px; /* Adjust depending on the height of your header */
         }
 
-        /* Remove footer */
+        /* Hamburger Menu and Navbar styles */
+.hamburger-menu {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+.navbar {
+    display: none;
+    position: absolute;
+    background-color: #00FFFF;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    padding: 15px 0;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/* Login Button styles */
+.login-button {
+    background-color: white;
+    color: #005a87;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+}
+
+/* Adjust header to contain both menu and login button */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Qm6luFSqDvINa13aoLEgjhpZUAWInYQ&callback=initMap" async defer></script>
 </head>
 <body>
     <header>
+        <div class="hamburger-menu">
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+</div>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<div class="login-button">
+    Log in or Create an Account
+</div>
+
         <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
     </header>
 
@@ -59,6 +133,11 @@
         };
         var map = new google.maps.Map(document.getElementById('map'), mapOptions);
     }
+</script>
+<script>
+    document.querySelector('.hamburger-menu').addEventListener('click', () => {
+        document.querySelector('.navbar').classList.toggle('show');
+    });
 </script>
 
 </body>
