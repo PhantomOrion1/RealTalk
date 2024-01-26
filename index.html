@@ -57,15 +57,15 @@
         }
 
         /* Navbar styles */
-        .navbar {
-            display: none;
-            position: absolute;
-            background-color: #00FFFF;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-        }
+       .navbar {
+        display: none;
+        position: fixed;
+        background-color: #00FFFF;
+        top: 60px;
+        left: 0;
+        width: 250px; /* Smaller width */
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Add shadow for better visibility */
+    }
 
         .navbar.show {
             display: block;
@@ -125,18 +125,45 @@
     </div>
 
     <script>
-        function initMap() {
-            var mapOptions = {
-                zoom: 12, // You can adjust the zoom level as needed
-                center: {lat: -37.8136, lng: 144.9631} // Coordinates for Melbourne
-            };
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    // Function to initialize the map
+    function initMap(lat = -37.8136, lng = 144.9631) { // Default coordinates for Melbourne
+        var mapOptions = {
+            zoom: 12,
+            center: new google.maps.LatLng(lat, lng)
+        };
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    }
+
+    // Function to get user's location
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                initMap(position.coords.latitude, position.coords.longitude);
+            }, function() {
+                // User denied Geolocation
+                initMap(); // Initialize map with default location
+            });
+        } else {
+            // Geolocation is not supported
+            initMap(); // Initialize map with default location
         }
-    </script>
-    <script>
-        document.querySelector('.hamburger-menu').addEventListener('click', () => {
-            document.querySelector('.navbar').classList.toggle('show');
-        });
-    </script>
+    }
+
+    // Call getLocation when the page loads
+    window.onload = getLocation;
+
+    // Toggle the navbar
+    document.querySelector('.hamburger-menu').addEventListener('click', function() {
+        document.querySelector('.navbar').classList.toggle('show');
+    });
+
+    // Close navbar when clicked outside
+    window.addEventListener('click', function(e) {
+        if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
+            document.querySelector('.navbar').classList.remove('show');
+        }
+    });
+</script>
+
 </body>
 </html>
