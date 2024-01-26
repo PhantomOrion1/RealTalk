@@ -2,13 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - RealTalk</title>
-    <!-- Add your CSS link here if needed -->
+    <style>
+        /* Basic styling */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #aed9e0;
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo alignment */
+        #logo {
+            height: auto;
+            width: 150px;
+        }
+
+        /* Hamburger Menu styles */
+        .hamburger-menu {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .line {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: none;
+            position: fixed;
+            background-color: #00FFFF;
+            top: 60px;
+            left: 0;
+            width: 250px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .navbar.show {
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            padding: 15px 0;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            display: block;
+        }
+
+        /* Login button styles */
+        .login-button {
+            background-color: white;
+            color: #005a87;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        /* Main content styling */
+        main {
+            margin-top: 80px; /* Adjust top margin to account for fixed header */
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>About Us</h1>
-    <p>This is the About Us page content...</p>
-    <!-- Add more content here -->
+    <header>
+        <div class="hamburger-menu">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+        </div>
+        
+        <nav class="navbar">
+            <ul>
+               <li><a href="about.html">About Us</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a href="index.html">
+            <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
+        </a>
+        
+        <div class="login-button">
+            Log in or Create an Account
+        </div>
+    </header>
+
+    <main>
+        <h1>About Us</h1>
+        <p>Welcome to RealTalk! Here's where you can add information about your company, its mission, values, history, team, and anything else you want your visitors to know about.</p>
+        <!-- Add more about us content here -->
+    </main>
+
+    <script>
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('show');
+        });
+
+        window.addEventListener('click', function(e) {
+            if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
+                document.querySelector('.navbar').classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
