@@ -19,7 +19,7 @@
         header {
             background-color: #aed9e0;
             color: white;
-            padding: 10px 0;
+            padding: 10px 20px;
             width: 100%;
             position: fixed;
             top: 0;
@@ -46,7 +46,6 @@
         .hamburger-menu {
             cursor: pointer;
             display: inline-block;
-            margin-left: 20px;
         }
 
         .line {
@@ -57,15 +56,16 @@
         }
 
         /* Navbar styles */
-       .navbar {
-        display: none;
-        position: fixed;
-        background-color: #00FFFF;
-        top: 60px;
-        left: 0;
-        width: 250px; /* Smaller width */
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Add shadow for better visibility */
-    }
+        .navbar {
+            display: none;
+            position: fixed;
+            background-color: #00FFFF;
+            top: 60px;
+            left: 0;
+            width: 250px; 
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
+            text-align: center; /* Center align navbar items */
+        }
 
         .navbar.show {
             display: block;
@@ -74,6 +74,7 @@
         .navbar ul {
             list-style: none;
             padding: 0;
+            margin: 0; /* Remove default margin */
         }
 
         .navbar ul li {
@@ -84,6 +85,7 @@
             text-decoration: none;
             color: white;
             font-size: 18px;
+            display: block; /* Make the entire list item clickable */
         }
 
         /* Login button styles */
@@ -94,6 +96,7 @@
             border-radius: 20px;
             cursor: pointer;
             font-size: 16px;
+            margin-right: 10px; /* Slightly move the button to the left */
         }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Qm6luFSqDvINa13aoLEgjhpZUAWInYQ&callback=initMap" async defer></script>
@@ -125,45 +128,26 @@
     </div>
 
     <script>
-    // Function to initialize the map
-    function initMap(lat = -37.8136, lng = 144.9631) { // Default coordinates for Melbourne
-        var mapOptions = {
-            zoom: 16,
-            center: new google.maps.LatLng(lat, lng)
-        };
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    }
-
-    // Function to get user's location
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                initMap(position.coords.latitude, position.coords.longitude);
-            }, function() {
-                // User denied Geolocation
-                initMap(); // Initialize map with default location
-            });
-        } else {
-            // Geolocation is not supported
-            initMap(); // Initialize map with default location
+        function initMap(lat = -37.8136, lng = 144.9631) {
+            var mapOptions = {
+                zoom: 15,
+                center: new google.maps.LatLng(lat, lng)
+            };
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
         }
-    }
 
-    // Call getLocation when the page loads
-    window.onload = getLocation;
-
-    // Toggle the navbar
-    document.querySelector('.hamburger-menu').addEventListener('click', function() {
-        document.querySelector('.navbar').classList.toggle('show');
-    });
-
-    // Close navbar when clicked outside
-    window.addEventListener('click', function(e) {
-        if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
-            document.querySelector('.navbar').classList.remove('show');
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    initMap(position.coords.latitude, position.coords.longitude);
+                }, function() {
+                    initMap();
+                });
+            } else {
+                initMap();
+            }
         }
-    });
-</script>
 
-</body>
-</html>
+        window.onload = getLocation;
+
+        document.querySelector('.hamburger-menu').addEventListener('
