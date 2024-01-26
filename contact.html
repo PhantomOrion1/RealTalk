@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - RealTalk</title>
+    <style>
+         body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #aed9e0;
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo alignment */
+        #logo {
+            height: auto;
+            width: 150px;
+        }
+
+        /* Map styling */
+        #map {
+            height: 100%;
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        /* Hamburger Menu styles */
+        .hamburger-menu {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .line {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: none;
+            position: fixed;
+            background-color: #00FFFF;
+            top: 60px;
+            left: 0;
+            width: 250px; 
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
+            text-align: center; /* Center align navbar items */
+        }
+
+        .navbar.show {
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0; /* Remove default margin */
+        }
+
+        .navbar ul li {
+            padding: 15px 0;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            display: block; /* Make the entire list item clickable */
+        }
+
+        /* Login button styles */
+        .login-button {
+            background-color: white;
+            color: #005a87;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px; /* Slightly move the button to the left */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+        </div>
+        
+        <nav class="navbar">
+            <ul>
+               <li><a href="about.html">About Us</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a href="index.html">
+            <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
+        </a>
+        
+        <div class="login-button">
+            Log in or Create an Account
+        </div>
+    </header>
+
+    <main>
+        <h1>Contact</h1>
+        <p>If you have any questions, please feel free to reach out to us.</p>
+        <p>Email: contact@realtalk.com</p>
+        <p>Phone: 123-456-7890</p>
+        <!-- You can add a contact form here if you want -->
+    </main>
+
+    <script>
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('show');
+        });
+
+        window.addEventListener('click', function(e) {
+            if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
+                document.querySelector('.navbar').classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
 
