@@ -97,6 +97,23 @@
             margin-top: 80px; /* Adjust top margin to account for fixed header */
             padding: 20px;
         }
+        .about-section {
+            margin: 80px 20px 20px 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h2 {
+            color: #005a87;
+        }
+
+        .about-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -124,10 +141,14 @@
     </header>
 
     <main>
-        <h1>About Us</h1>
-        <p>Welcome to RealTalk! Here's where you can add information about your company, its mission, values, history, team, and anything else you want your visitors to know about.</p>
-        <!-- Add more about us content here -->
-    </main>
+    <div class="about-section">
+        <h2>Our Mission</h2>
+        <p>Our mission is to create spaces where individuals can engage in meaningful, brief conversations with strangers, offering a platform for the exchange of perspectives and companionship in an open and welcoming environment. Whether it's before work, after class, or during travels, RealTalk is dedicated to breaking down interpersonal barriers, combating loneliness, and fostering human connections in a world increasingly dominated by technology.</p>
+        
+        <h2>Our Vision</h2>
+        <p>To combat the growing isolation brought on by technological advancements, our vision is to foster deeper human connections, nurturing a society where diverse perspectives thrive and enrich our collective experience.</p>
+    </div>
+</main>
 
     <script>
         document.querySelector('.hamburger-menu').addEventListener('click', function() {
