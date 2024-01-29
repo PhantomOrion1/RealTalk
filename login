@@ -68,7 +68,7 @@
         <!-- Log In Form -->
         <div class="form-section">
             <h2>Log In</h2>
-            <form action="/path-to-login" method="post">
+            <form action="http://jdiddy.pythonanywhere.com/login" method="post">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Log In">
