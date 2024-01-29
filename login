@@ -78,7 +78,7 @@
         <!-- Sign Up Form -->
         <div class="form-section">
             <h2>Create an Account</h2>
-            <form action="/path-to-signup" method="post">
+            <form action="http://jdiddy.pythonanywhere.com/singup" method="post">
                 <input type="text" name="new-username" placeholder="Username" required>
                 <input type="password" name="new-password" placeholder="Password" required>
                 <!-- Include any additional fields as necessary -->
