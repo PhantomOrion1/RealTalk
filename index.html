@@ -88,16 +88,24 @@
             display: block; /* Make the entire list item clickable */
         }
 
-        /* Login button styles */
-        .login-button {
-            background-color: white;
-            color: #005a87;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px; /* Slightly move the button to the left */
-        }
+       /* Combined button styling */
+.auth-button {
+    background-color: white;
+    color: #005a87;
+    padding: 10px 20px;
+    border-radius: 20px; /* Adjust for roundness */
+    text-decoration: none;
+    margin-right: 15px; /* Adjust as needed for spacing */
+    cursor: pointer;
+}
+
+/* Hover effect */
+.auth-button:hover {
+    background-color: #003f5f;
+    color: white;
+}
+
+          
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Qm6luFSqDvINa13aoLEgjhpZUAWInYQ&callback=initMap" async defer></script>
 </head>
@@ -109,7 +117,9 @@
             <div class="line line3"></div>
         </div>
 
-        
+        <div>
+            <a href="login_or_signup.html" class="auth-button">Log In or Sign Up</a>
+        </div>
         
         <nav class="navbar">
             <ul>
@@ -123,9 +133,10 @@
         </a>
     
         <div>
-            <a href="login.html" class="login-button">Log In</a>
-            <a href="signup.html" class="login-button">Sign Up</a>
+          <a href="login.html" class="auth-button">Log In</a>
+          <a href="signup.html" class="auth-button">Sign Up</a>
         </div>
+
         
     </header>
 
