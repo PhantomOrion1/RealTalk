@@ -89,17 +89,22 @@
         }
 
        /* Combined button styling */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Adjust as needed */
+}
+
 .auth-button {
     background-color: white;
     color: #005a87;
     padding: 10px 20px;
-    border-radius: 20px; /* Adjust for roundness */
+    border-radius: 20px;
     text-decoration: none;
-    margin-right: 15px; /* Adjust as needed for spacing */
+    margin: 0 5px; /* Space between buttons */
     cursor: pointer;
 }
 
-/* Hover effect */
 .auth-button:hover {
     background-color: #003f5f;
     color: white;
@@ -132,10 +137,11 @@
              <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
         </a>
     
-        <div>
-          <a href="login.html" class="auth-button">Log In</a>
-          <a href="signup.html" class="auth-button">Sign Up</a>
+        <div class="auth-buttons">
+    <a href="login.html" class="auth-button">Log In</a>
+    <a href="signup.html" class="auth-button">Sign Up</a>
         </div>
+
 
         
     </header>
