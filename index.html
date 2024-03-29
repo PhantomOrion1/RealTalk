@@ -152,16 +152,36 @@
     <script>
        function initMap() {
     var mapOptions = {
-        zoom: 15,
+        zoom: 14, // Adjusted zoom level to better accommodate multiple markers
         center: new google.maps.LatLng(-37.785028, 144.962611) // Center the map
     };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+    // Custom pin image URL and scaled size
     var image = {
-        url: 'https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/MapIcon2RealTalk.png', // Your custom pin image URL
-        // Define the size of the icon:
-        scaledSize: new google.maps.Size(50, 50) // Scale the image to 40x40 pixels
+        url: 'https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/MapIcon2RealTalk.png',
+        scaledSize: new google.maps.Size(50, 50) 
     };
+
+    // Markers data array
+    var markersData = [
+        {lat: -37.785028, lng: 144.962611, title: 'Princess Park Bench'},
+        {lat: -37.792111, lng: 144.956806, title: 'Royal Park Bench'},
+        {lat: -37.781389, lng: 144.957278, title: 'Poplar Oval Bench'},
+        {lat: -37.787111, lng: 144.981833, title: 'Edinburgh Gardens Bench'}
+    ];
+
+    // Create a marker for each location
+    markersData.forEach(function(markerData) {
+        new google.maps.Marker({
+            position: {lat: markerData.lat, lng: markerData.lng},
+            map: map,
+            icon: image,
+            title: markerData.title
+        });
+    });
+}
+
 
     var marker = new google.maps.Marker({
         position: {lat: -37.785028, lng: 144.962611}, // Your specified location
