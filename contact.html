@@ -1,20 +1,27 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RealTalk - Connect Authentically</title>
+    <title>Contact - RealTalk</title>
     <style>
-        /* Basic styling */
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-        }
-
+          body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-image: url('https://github.com/PhantomOrion1/RealTalk/blob/main/RealTalkBAckground.jpg?raw=true'); /* Add your image URL */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+}
+        
+         main {
+        margin-top: 100px; /* Adjust this value based on your header's height */
+        padding: 20px;
+        }      
+        
         /* Header styling */
         header {
             background-color: #aed9e0;
@@ -88,33 +95,47 @@
             display: block; /* Make the entire list item clickable */
         }
 
-       /* Combined button styling */
-.auth-buttons {
-    display: flex;
-    align-items: center;
-    margin-right: 10px; /* Adjust as needed */
-    margin-left: -50px; /* Move to the left. Adjust this value as needed. */
-}
+        /* Login button styles */
+        .login-button {
+            background-color: white;
+            color: #005a87;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px; /* Slightly move the button to the left */
+        }
 
+        .contact-section {
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px; /* Adjust as needed */
+    }
 
-.auth-button {
-    background-color: white;
-    color: #005a87;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    margin: 0 5px; /* Space between buttons */
-    cursor: pointer;
-}
+        .contact-section h1 {
+            color: #005a87;
+            text-align: center;
+        }
 
-.auth-button:hover {
-    background-color: #003f5f;
-    color: white;
-}
+        .contact-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px 0;
+        }
 
-          
+        .contact-info a {
+            color: #005a87;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Qm6luFSqDvINa13aoLEgjhpZUAWInYQ&callback=initMap" async defer></script>
 </head>
 <body>
     <header>
@@ -123,7 +144,6 @@
             <div class="line line2"></div>
             <div class="line line3"></div>
         </div>
-
         
         <nav class="navbar">
             <ul>
@@ -133,79 +153,36 @@
         </nav>
 
         <a href="index.html">
-             <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
+            <img src="https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png" alt="RealTalk Logo" id="logo">
         </a>
-    
-        <div class="auth-buttons">
-    <a href="login.html" class="auth-button">Log In</a>
-    <a href="signup.html" class="auth-button">Sign Up</a>
-        </div>
-
-
         
+        <div class="login-button">
+            Log in or Create an Account
+        </div>
     </header>
 
-    <div id="map">
-        <!-- The Google Map will be loaded here -->
-    </div>
+    <main>
+        <div class="contact-section">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or need assistance, please feel free to reach out to us. Our team is ready to help!</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:contact@realtalk.com">contact@realtalk.com</a></p>
+                <p><strong>Phone:</strong> 123-456-7890</p>
+                <!-- Additional contact information if needed -->
+            </div>
+        </div>
+    </main>
 
     <script>
-function initMap() {
-    var mapOptions = {
-        zoom: 14, // Adjusted zoom level to better accommodate multiple markers
-        center: new google.maps.LatLng(-37.785028, 144.962611) // Center the map
-    };
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    // Custom pin image URL and scaled size
-    var image = {
-        url: 'https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/MapIcon2RealTalk.png',
-        scaledSize: new google.maps.Size(50, 50) // Define the icon size
-    };
-
-    // Markers data array
-    var markersData = [
-        {lat: -37.785028, lng: 144.962611, title: 'Princess Park Bench'},
-        {lat: -37.792111, lng: 144.956806, title: 'Royal Park Bench'},
-        {lat: -37.781389, lng: 144.957278, title: 'Poplar Oval Bench'},
-        {lat: -37.787111, lng: 144.981833, title: 'Edinburgh Gardens Bench'}
-    ];
-
-    // Create a marker for each location
-    markersData.forEach(function(markerData) {
-        new google.maps.Marker({
-            position: {lat: markerData.lat, lng: markerData.lng},
-            map: map,
-            icon: image, // This now correctly references the `image` object
-            title: markerData.title
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('show');
         });
-    });
-}
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            initMap(position.coords.latitude, position.coords.longitude);
-        }, function() {
-            initMap(); // This defaults to the initial center if geolocation fails
+        window.addEventListener('click', function(e) {
+            if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
+                document.querySelector('.navbar').classList.remove('show');
+            }
         });
-    } else {
-        initMap(); // This calls initMap without arguments if geolocation is not supported
-    }
-}
-
-window.onload = getLocation;
-
-document.querySelector('.hamburger-menu').addEventListener('click', function() {
-    document.querySelector('.navbar').classList.toggle('show');
-});
-
-window.addEventListener('click', function(e) {
-    if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
-        document.querySelector('.navbar').classList.remove('show');
-    }
-});
-</script>
-
+    </script>
 </body>
 </html>
