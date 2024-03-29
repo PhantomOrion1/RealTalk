@@ -150,7 +150,7 @@
     </div>
 
     <script>
-       function initMap() {
+function initMap() {
     var mapOptions = {
         zoom: 14, // Adjusted zoom level to better accommodate multiple markers
         center: new google.maps.LatLng(-37.785028, 144.962611) // Center the map
@@ -160,7 +160,7 @@
     // Custom pin image URL and scaled size
     var image = {
         url: 'https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/MapIcon2RealTalk.png',
-        scaledSize: new google.maps.Size(50, 50) 
+        scaledSize: new google.maps.Size(50, 50) // Define the icon size
     };
 
     // Markers data array
@@ -176,49 +176,37 @@
         new google.maps.Marker({
             position: {lat: markerData.lat, lng: markerData.lng},
             map: map,
-            icon: image,
+            icon: image, // This now correctly references the `image` object
             title: markerData.title
         });
     });
 }
 
-
-    var marker = new google.maps.Marker({
-        position: {lat: -37.785028, lng: 144.962611}, // Your specified location
-        map: map,
-        icon: image,
-        title: 'Princess Park Bench'
-    });
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            initMap(position.coords.latitude, position.coords.longitude);
+        }, function() {
+            initMap(); // This defaults to the initial center if geolocation fails
+        });
+    } else {
+        initMap(); // This calls initMap without arguments if geolocation is not supported
+    }
 }
 
+window.onload = getLocation;
 
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+    document.querySelector('.navbar').classList.toggle('show');
+});
 
+window.addEventListener('click', function(e) {
+    if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
+        document.querySelector('.navbar').classList.remove('show');
+    }
+});
+</script>
 
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    initMap(position.coords.latitude, position.coords.longitude);
-                }, function() {
-                    initMap();
-                });
-            } else {
-                initMap();
-            }
-        }
-
-        window.onload = getLocation;
-
-        document.querySelector('.hamburger-menu').addEventListener('click', function() {
-            document.querySelector('.navbar').classList.toggle('show');
-        });
-
-        window.addEventListener('click', function(e) {
-            if (!document.querySelector('.hamburger-menu').contains(e.target) && !document.querySelector('.navbar').contains(e.target)) {
-                document.querySelector('.navbar').classList.remove('show');
-            }
-        });
-    </script>
 </body>
 </html>
 
