@@ -150,13 +150,25 @@
     </div>
 
     <script>
-        function initMap(lat = -37.8136, lng = 144.9631) {
-            var mapOptions = {
-                zoom: 15,
-                center: new google.maps.LatLng(lat, lng)
-            };
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        }
+       function initMap() {
+    var mapOptions = {
+        zoom: 15,
+        center: new google.maps.LatLng(-37.785028, 144.962611) // Center the map
+    };
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    var image = 'https://raw.githubusercontent.com/PhantomOrion1/RealTalk/main/RealTalkLogoPNG.png'; // Your custom pin image URL
+
+    var marker = new google.maps.Marker({
+        position: {lat: -37.785028, lng: 144.962611}, // Your specified location
+        map: map,
+        icon: image,
+        title: 'Princess Park Bench'
+    });
+}
+
+
+
 
         function getLocation() {
             if (navigator.geolocation) {
